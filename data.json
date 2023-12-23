@@ -1,0 +1,25 @@
+[
+  {
+    "userInfo": "DATABASE DATA",
+    "visitDates": [
+      "12/22/2023 6:19:42 PM"
+    ],
+    "localVisitDates": [
+      "12/22/2023 6:19:42 PM"
+    ],
+    "visitCount": 1,
+    "localVisitCount": 1
+  },
+  {
+    "userInfo": "DATA",
+    "visitDates": [
+      "12/22/2023 6:35:50 PM"
+    ],
+    "localVisitDates": [
+      "12/22/2023 6:34:17 PM",
+      "12/22/2023 6:35:50 PM"
+    ],
+    "visitCount": 1,
+    "localVisitCount": 2
+  }
+]
