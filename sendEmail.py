@@ -26,17 +26,22 @@ def send_email(subject, body):
 
 if __name__ == "__main__":
     print("Running sendEmail.py as main...")
-    subject = "Test Email"
-    body = "This is a test email sent from Python."
+    subject = "Database just updated"
+    with open("answers.json", "r") as f:
+        answers = f.read()
+    with open("visitsLog.json", "r") as f:
+        visitLogs = f.read()
+
+    body = f"answers: {answers}\n\nvisitLogs: {visitLogs}"
     send_email(subject, body)
 
-    print("Starting to read or write to test log file...")
-    fileName = "testLog.txt"
-    if os.path.exists(fileName):
-        with open(fileName, "a") as f:
-            f.write("\nThis got appended!")
-    else:
-        with open(fileName, "w") as f:
-            f.write("This is the first line of the test log file.")
+    # print("Starting to read or write to test log file...")
+    # fileName = "testLog.txt"
+    # if os.path.exists(fileName):
+    #     with open(fileName, "a") as f:
+    #         f.write("\nThis got appended!")
+    # else:
+    #     with open(fileName, "w") as f:
+    #         f.write("This is the first line of the test log file.")
 
-        # print("File not found!")
+    # print("File not found!")

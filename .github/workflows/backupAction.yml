@@ -1,9 +1,6 @@
-name: my workflow for sending email
+name: backup
 
 on:
-  push:
-    branches:
-      - main 
   repository_dispatch: 
 
 jobs:
@@ -30,3 +27,16 @@ jobs:
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
           RECEIVER_MAIL: ${{ secrets.RECEIVER_MAIL }}
         run: python sendEmail.py
+
+      - name: commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          
+      - name: push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main 
