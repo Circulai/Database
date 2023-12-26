@@ -26,13 +26,12 @@ def send_email(subject, body):
 
 if __name__ == "__main__":
     print("Running sendEmail.py as main...")
-    subject = "Database just updated"
+    subject = "Project Management Answers just updated"
     with open("answers.json", "r") as f:
         answers = f.read()
-    with open("visitsLog.json", "r") as f:
-        visitLogs = f.read()
 
-    body = f"answers: {answers}\n\nvisitLogs: {visitLogs}"
+
+    body = f"answers: {answers}"
     send_email(subject, body)
 
     # print("Starting to read or write to test log file...")
